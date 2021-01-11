@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && npm run dev"
+    "start": "cd server && npm run dev",
+    "postinstall": "npm i --prefix ./server && npm i --prefix ./dashboard"
   },
   "repository": {
     "type": "git",
