@@ -5,7 +5,7 @@ import { DayPilot, DayPilotCalendar } from "daypilot-pro-react";
 import ProgressBar from './ProgressBar.js';
 import Calendar from './Calendar.js';
 import {LineChart,BarChart} from './Chart.js';
-
+import 'typeface-roboto'
 import './Figma.css';
 import { requirePropFactory } from '@material-ui/core';
 import { user1, Purchase, Account } from './store.js';
