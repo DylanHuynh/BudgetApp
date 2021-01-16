@@ -20,6 +20,8 @@ class Firebase {
 	}
 
 	login(email, password) {
+		debugger;
+		this.auth.setPersistence(app.auth.Auth.Persistence.LOCAL);
 		return this.auth.signInWithEmailAndPassword(email, password)
 	}
 
@@ -51,6 +53,7 @@ class Firebase {
 	}
 
 	getCurrentUsername() {
+		console.log(this.auth)
 		return this.auth.currentUser && this.auth.currentUser.displayName
 	}
 

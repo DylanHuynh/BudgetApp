@@ -4,6 +4,8 @@ import "./AddPurchase.css";
 import {Purchase} from "./store.js";
 import { startOfWeek, format, addDays, getTime, parseJSON, parseISO } from 'date-fns';
 import firebase from './components/firebase.js'
+import { withRouter } from "react-router-dom";
+
 
 
 
@@ -25,7 +27,6 @@ const dayToDate = (day) => {
 
 const processRepetitions = (item) => {
   if (item.repetition !== "No") {
-    debugger;
     console.log(parseISO(item.date));
     console.log(addDays(parseISO(item.date),365));
     return format(addDays(parseISO(item.date),365),"yyyy-MM-dd");
@@ -73,7 +74,7 @@ class AddPurchase extends Component {
         uuid: this.props.account.uuid
       }
       debugger;
-      
+
       //change to a dictionary, not object
       console.log(newPurchase);
       newPurchase.date = processRepetitions(newPurchase);
@@ -104,7 +105,7 @@ class AddPurchase extends Component {
     const { formErrors } = this.state;
 
     return (
-      <div className="wrapper">
+      <div className="wrapper1">
         <div className="form-wrapper">
           <h1>Create New Purchase</h1>
           <form onSubmit={this.handleSubmit}>
@@ -178,11 +179,19 @@ class AddPurchase extends Component {
             </div>
 
             <div className="createPurchase">
-              <button type="submit"  >Add Purchase</button>
-              <button onClick={(e) => {
+              <button type="submit" >Add Purchase</button>
+              {/* <button onClick={(e) => {
               e.preventDefault();
               window.location.href='/dashboard';
-              }}>Exit Page</button>
+              }}>Exit Page</button> */}
+              <button onClick={() => {
+                this.props.history.push({
+                  pathname: "/dashboard",
+                  state: {
+                    account: this.props.account
+                  }
+                })
+               }}>Exit Page</button>
             </div>
           </form>
         </div>
@@ -191,4 +200,4 @@ class AddPurchase extends Component {
   }
 }
 
-export default AddPurchase;
+export default withRouter(AddPurchase);

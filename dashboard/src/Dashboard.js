@@ -166,7 +166,9 @@ function Dashboard(props) {
 
   useEffect(() => {
     console.log("first load");
-    console.log(props.account);
+    console.log(props);
+    console.log(firebase);
+
     debugger;
     console.log(firebase.getUserID());
     //loadUser('abcde', props.handleChange);
