@@ -164,11 +164,12 @@ class AddPurchase extends Component {
                 <option value="Transportation Expenses">Transportation Expenses</option>
                 <option value="Clothes">Clothes</option>
                 <option value="Entertainment">Entertainment</option>
+                <option value="Miscellaneous">Miscellaneous</option>
               </select>
             </div>
 
             <div className="repeat">
-              <label htmlFor="repeat">Repeat Purchase</label>
+              <label htmlFor="repeat">Repeat Purchase (enter "No" comma-separated two-letter days ex: No or Mo,We,Fr)</label>
               <input
                 placeholder="Repeat Purchase"
                 type="text"

@@ -94,20 +94,23 @@ const generateDailyCosts = (account, startOfWeek) => {
 }
 
 const statusMessage = (account, budget, categoryPrices, startOfWeek) => {
-  if (findPurchaseTotal(account, startOfWeek) <= budget) {
+  console.log(categoryPrices);
+  if (findPurchaseTotal(account, startOfWeek) > 0 && findPurchaseTotal(account, startOfWeek) <= budget) {
     return ["On Track!", "Keep it up!"]
   }
   else {
     let maxCategory = "";
     let maxPrice = 0;
-    for (const key in categoryPrices) {
-      if (categoryPrices[key] > maxPrice) {
-        maxCategory = key;
-        maxPrice = categoryPrices[key]
+    debugger;
+    for (let i = 0; i < categoryPrices[0].length; i++) {
+      console.log(categoryPrices[0][i]);
+      if (categoryPrices[0][i] > maxPrice) {
+        maxCategory = categoryPrices[1][i];
+        maxPrice = categoryPrices[0][i];
       }
     }
     if (maxCategory === "") {
-      return ["No purchases made yet", "N/A"];
+      return ["N/A", "Make some purchases!"];
     }
     return ["Warning", " Consider reducing spending in " + maxCategory];
   }
@@ -197,7 +200,7 @@ function Dashboard(props) {
         <div id="report-header-box"></div>
         <div id="visualization-header-box"></div>
         <span id="report-header">Status Report: {statusMessage(props.account, props.account.weeklyBudget, vals, firstDay)[0]}</span>
-        <span onClick={() => toggleVisualization()} id="visualization-header">Toggle Visualizations</span>
+        <span onClick={() => toggleVisualization()} id="visualization-header">Click Here to Toggle!</span>
         <div id="report"></div>
         <div id="visualization">
           {visualizationDict[visualization[0]]}

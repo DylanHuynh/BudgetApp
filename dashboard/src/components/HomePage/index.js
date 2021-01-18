@@ -42,7 +42,7 @@ function HomePage(props) {
 					<VerifiedUserOutlined />
 				</Avatar>
 				<Typography component="h1" variant="h5">
-					Hello Guest!
+					Hello Guest! Welcome to BudgetHub!
 				</Typography>
 				<Button
 					type="submit"
@@ -64,16 +64,7 @@ function HomePage(props) {
 					className={classes.submit}>
 					Login
           		</Button>
-				<Button
-					type="submit"
-					fullWidth
-					variant="contained"
-					color="secondary"
-					component={Link}
-					to="/dashboard"
-					className={classes.submit}>
-					Dashboard
-          		</Button>
+
 			</Paper>
 		</main>
 	)
